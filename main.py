@@ -680,7 +680,7 @@ class Options:
     def __init__(self):
         self.ProductionAfterConquer = True
         self.NeutralsProduction = 5
-        self.CumulativeProduction = True
+        self.CumulativeProduction = False#True
         self.MapWidth = 10
         self.MapHeight = 10
         self.MinNeutrals = 2
