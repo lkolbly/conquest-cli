@@ -180,13 +180,14 @@ class PlayerUI:
             #nships = groups[1]
             #src = groups[0]
             #dest = groups[2]
-            nships = i[1]
+            nships = int(i[1])
             src = i[0]
             dest = i[2]
 
             destPlanet = self.game.map.getPlanet(dest)
             srcPlanet = self.game.map.getPlanet(src)
             if srcPlanet and destPlanet:
+                print nships, srcPlanet.homeFleet.shipcnt
                 if srcPlanet.owner != self.player:
                     print "You don't own planet %s"%src
                 elif nships > srcPlanet.homeFleet.shipcnt:
