@@ -656,8 +656,10 @@ class Game:
 
         # See which fleets have made landfall
         for player in self.players:
+            #print "Player..."
             finishedFleets = []
             for fleet in player.attackFleets:
+                #print "   Fleet..."
                 #print "%s %s" % (fleet.arrivalTm, self.turnCounter)
                 if fleet.arrivalTm <= self.turnCounter:
                     self.doFleetArrival(fleet)
@@ -735,11 +737,13 @@ def main():
     for i in range(random.randint(options.MinNeutrals, options.MaxNeutrals)):
         game.map.addNeutralPlanetSomewhere()
 
+    game.players.append(humanPlayer)
+
     formatter.printMap(game.map)
 
     # Print out the stats of all planets
-    for planet in game.map.planetList():
-        formatter.planetStats(planet)
+    #for planet in game.map.planetList():
+    #    formatter.planetStats(planet)
 
     #ui1 = PlayerUI(game, player1)
     #ui2 = PlayerAI(game, player2)
@@ -758,7 +762,8 @@ def main():
         #print "It is now player2's turn."
         #ui2.go()
         for i in range(options.nAIPlayers):
-            print "It is now Computer %s's turn."%(i+1)
+            #print "It is now Computer %s's turn."%(i+1)
+            game.currentPlayer = ais[i].player
             ais[i].go()
         game.turn()
 
